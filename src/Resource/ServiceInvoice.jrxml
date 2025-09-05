@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ServiceInvoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a418a44-ccfc-4183-aac2-57b50fc0262c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Mysql"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<parameter name="js_jobNo" class="java.lang.String"/>
+	<parameter name="js_vehicleNo" class="java.lang.String"/>
+	<parameter name="js_invoiceNo" class="java.lang.String"/>
+	<parameter name="js_date" class="java.lang.String"/>
+	<parameter name="js_cutomerName" class="java.lang.String"/>
+	<parameter name="js_make" class="java.lang.String"/>
+	<parameter name="js_email" class="java.lang.String"/>
+	<parameter name="js_model" class="java.lang.String"/>
+	<parameter name="js_subTotal" class="java.lang.String"/>
+	<parameter name="js_cash" class="java.lang.String"/>
+	<parameter name="js_discount" class="java.lang.String"/>
+	<parameter name="js_total" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT js.jobNo, s.serviceID, s.name, s.subPrice
+FROM job_has_service js
+inner join service s ON js.serviceID = s.serviceID
+WHERE js.jobNo = $P{js_jobNo}]]>
+	</queryString>
+	<field name="jobNo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="jobNo"/>
+		<property name="com.jaspersoft.studio.field.label" value="jobNo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="job_has_service"/>
+	</field>
+	<field name="serviceID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="serviceID"/>
+		<property name="com.jaspersoft.studio.field.label" value="serviceID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="service"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="service"/>
+	</field>
+	<field name="subPrice" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="subPrice"/>
+		<property name="com.jaspersoft.studio.field.label" value="subPrice"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="service"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="-20" y="0" width="595" height="140" forecolor="rgba(0, 0, 153, 0.8666667)" backcolor="#000099" uuid="dcb1ccab-cea8-4e68-a7d7-3d2d5f293cc7"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineColor="rgba(0, 0, 153, 0.0)"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="140" y="30" width="160" height="20" forecolor="#FFFFFF" uuid="674f56d1-dd01-4939-bd1e-a4bc462e9494"/>
+				<textElement>
+					<font fontName="Calibri" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[AutoCare Service Center]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="70" width="160" height="20" forecolor="#FFFFFF" uuid="65dbd8cc-2e8e-4237-b732-f6b55834e71c"/>
+				<textElement>
+					<font fontName="Calibri" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Galle.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="410" y="90" width="134" height="41" forecolor="#FFFFFF" backcolor="#000099" uuid="6d838761-4e32-4307-b593-0cded1fa04fe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="33" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="10" width="131" height="121" uuid="252f4001-b3bf-404d-bb02-27e38500ec53"/>
+				<imageExpression><![CDATA["D:/COT/COTFinalProject/src/Icons/campany_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="140" y="50" width="160" height="20" forecolor="#FFFFFF" uuid="119cc543-2b04-4b6c-8329-b7cc3cb09a5c"/>
+				<textElement>
+					<font fontName="Calibri" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Wakwella Road,]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<textField>
+				<reportElement x="454" y="30" width="100" height="20" uuid="f4adc749-64bc-460d-beb1-428fd81afc41"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{js_invoiceNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="30" width="71" height="20" forecolor="#000099" uuid="7f25f56b-41bb-40ec-9064-fb5fa1162a30"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="50" width="71" height="20" forecolor="#000099" uuid="14c5919b-d345-4ad0-a4b3-d5995204eb28"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="10" width="40" height="17" forecolor="#000099" uuid="6f878774-be55-44b2-989b-7904b363afc4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bill To]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="30" width="171" height="20" uuid="b907ed11-b3d1-4489-8e0f-c935385ccd80"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{js_cutomerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="50" width="171" height="20" uuid="2f8157a9-7e5a-43c4-a66d-6abddffa808a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{js_make} + " " + $P{js_model}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="70" width="100" height="20" uuid="54f57499-fda0-4bd2-8121-6e442fa1b845"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{js_vehicleNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="70" width="71" height="20" forecolor="#000099" uuid="6722bbd9-a46e-464c-b10a-de44c8cf3ada"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle No]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="70" width="171" height="20" uuid="a6478ddc-d76e-418f-bb9d-8306f1115545"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{js_email}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="454" y="50" width="100" height="20" uuid="c4eda2a8-f040-4a9e-9323-a8cb7a2d2ec0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="80" height="20" forecolor="#FFFFFF" backcolor="rgba(0, 0, 153, 0.9019608)" uuid="fa14542d-9989-4953-b8c4-3dd0e4fc1b69">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ffa36b6-d7b4-4502-b8ac-e0c366768a56"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Service ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="0" width="390" height="20" forecolor="#FFFFFF" backcolor="rgba(0, 0, 153, 0.9019608)" uuid="ba2fb3c9-f2f7-4de1-916c-28bd46bda11a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7342fdc1-baa8-45a3-b18e-e73b4b671f2f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="470" y="0" width="84" height="20" forecolor="#FFFFFF" backcolor="rgba(0, 0, 153, 0.9019608)" uuid="f22a6ab1-676b-46c6-9b39-2219c0c6e027">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46adbf7c-79b3-4ec1-9f14-0c14b3a06058"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="20" uuid="be232f23-7377-4c2e-b3a0-506566a7bd49">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ffa36b6-d7b4-4502-b8ac-e0c366768a56"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#000099"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serviceID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="390" height="20" uuid="10944c9d-5a79-48d3-ae21-a916aa49e8cc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7342fdc1-baa8-45a3-b18e-e73b4b671f2f"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#000099"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="84" height="20" uuid="2269d784-0c73-49b0-a465-a065657ce1df">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46adbf7c-79b3-4ec1-9f14-0c14b3a06058"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="cm"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#000099"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subPrice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="204" splitType="Stretch">
+			<textField>
+				<reportElement x="19" y="32" width="281" height="80" uuid="03a60f5d-743d-49d2-b9ab-690dd33ed25a"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="12" width="30" height="20" uuid="bed7a157-2925-4585-ab1d-429a3f0e131d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Note]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="400" y="41" width="70" height="19" backcolor="rgba(0, 0, 153, 0.19607843)" uuid="085d8346-3cb8-40a1-ad4d-a53161ca48ad"/>
+				<box>
+					<pen lineColor="#000099"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000099"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000099"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="470" y="41" width="84" height="19" backcolor="rgba(0, 0, 153, 0.19607843)" uuid="49d296c5-9629-4c73-8220-0e09f1323a77"/>
+				<box>
+					<pen lineColor="#000099"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000099"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000099"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{js_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="1" width="70" height="20" uuid="d2943685-6e51-42f5-9afe-9059e79955b8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="1" width="84" height="20" uuid="a1c5abd6-86fa-44a7-bd7a-3ec65d0cb367">
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{js_subTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="21" width="70" height="20" uuid="60db0ac8-c53a-4549-9f41-648597a2ca3b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="21" width="84" height="20" uuid="01e875d6-5d89-4dcc-84cf-29f2d22b4191">
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{js_discount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement mode="Opaque" x="0" y="0" width="554" height="1" backcolor="#000099" uuid="82135090-c41f-4150-a271-33d6dfc40a4d"/>
+				<graphicElement>
+					<pen lineColor="#000099"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
